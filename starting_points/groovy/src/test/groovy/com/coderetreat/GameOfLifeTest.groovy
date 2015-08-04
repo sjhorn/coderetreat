@@ -32,7 +32,6 @@ class GameOfLifeTest extends Specification {
 	
 	def "Life Blinks"() {
 		setup:
-			Life life = new Life()
 			life.board = boardFromString("1:0,1:1,1:2")
 			life.age()
 			
@@ -42,7 +41,6 @@ class GameOfLifeTest extends Specification {
 	
 	def "Life Blocks"() {
 		setup:
-			Life life = new Life()
 			life.board = boardFromString("1:1,2:1,1:2,2:2")
 			life.age()
 					
@@ -52,7 +50,6 @@ class GameOfLifeTest extends Specification {
 	
 	def "Life Beehive"() {
 		setup:
-			Life life = new Life()
 			life.board = boardFromString("2:1,3:1,1:2,4:2,2:3,3:3")
 			life.age()
 			
@@ -62,12 +59,20 @@ class GameOfLifeTest extends Specification {
 	
 	def "Life Loaf"() {
 		setup:
-			Life life = new Life()
 			life.board = boardFromString("2:1,3:1,1:2,4:2,2:3,4:3,3:4")
 			life.age()
 			
 		expect:
 			life.board == boardFromString("2:1,3:1,1:2,4:2,2:3,4:3,3:4")
+	}
+	
+	def "Life Boat"() {
+		setup:
+			life.board = boardFromString("1:1,2:1,1:2,3:2,2:3")
+			life.age()
+			
+			expect:
+				life.board == boardFromString("1:1,2:1,1:2,3:2,2:3")
 	}
 	
 	

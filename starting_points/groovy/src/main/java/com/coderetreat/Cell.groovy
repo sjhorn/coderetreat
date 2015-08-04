@@ -14,6 +14,4 @@ class Cell {
 	String toString() {
 		return "$x:$y"
 	}
-	
-	
 }
