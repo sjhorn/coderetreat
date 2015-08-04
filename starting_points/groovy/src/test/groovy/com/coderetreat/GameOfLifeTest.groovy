@@ -71,8 +71,17 @@ class GameOfLifeTest extends Specification {
 			life.board = boardFromString("1:1,2:1,1:2,3:2,2:3")
 			life.age()
 			
-			expect:
-				life.board == boardFromString("1:1,2:1,1:2,3:2,2:3")
+		expect:
+			life.board == boardFromString("1:1,2:1,1:2,3:2,2:3")
+	}
+	
+	def "Life Toad"() {
+		setup:
+			life.board = boardFromString("2:2,3:2,4:2,1:3,2:3,3:3")
+			life.age()
+			
+		expect:
+			life.board == boardFromString("3:1,1:2,4:2,1:3,4:3,2:4")
 	}
 	
 	
